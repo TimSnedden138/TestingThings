@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Inventory : MonoBehaviour {
     public List<ButtonsComp> ShopItems = new List<ButtonsComp>();
-    [HideInInspector]
     public List<string> playerInv;
     public List<Texture> backgroundImages;
     public RawImage rawImage;
@@ -46,41 +45,45 @@ public class Inventory : MonoBehaviour {
          ShopItems[i].Obj.GetComponentInChildren<Text>().text = "Weapon: " + ShopItems[i].objText + "\n"+ 
                 "Cost: " + ShopItems[i].objVal;
         }
-        ShopItems[0].Obj.onClick.AddListener(() => AddtoInv(0));
-        ShopItems[1].Obj.onClick.AddListener(() => AddtoInv(1));
-        ShopItems[2].Obj.onClick.AddListener(() => AddtoInv(2));
-        ShopItems[3].Obj.onClick.AddListener(() => AddtoInv(3));
-        ShopItems[4].Obj.onClick.AddListener(() => AddtoInv(4));
+
     }
 
     // Update is called once per frame
     void Update()
     {
         ScreenMoney.text = "Your Money Is: " + PlayerMoney;
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && playerInv.Contains(ShopItems[0].objText))
         {
             Remove(ShopItems[0].objText);
             PlayerMoney = PlayerMoney + 5;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && playerInv.Contains(ShopItems[0].objText))
         {
             Remove(ShopItems[1].objText);
             PlayerMoney = PlayerMoney + 15;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && playerInv.Contains(ShopItems[0].objText))
         {
             Remove(ShopItems[2].objText);
             PlayerMoney = PlayerMoney + 60;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && playerInv.Contains(ShopItems[0].objText))
         {
             Remove(ShopItems[3].objText);
             PlayerMoney = PlayerMoney + 85;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5) && playerInv.Contains(ShopItems[0].objText))
         {
             Remove(ShopItems[4].objText);
             PlayerMoney = PlayerMoney + 30;
+        }
+        if(PlayerMoney > ShopItems[0].objVal)
+        {
+        ShopItems[0].Obj.onClick.AddListener(() => AddtoInv(0));
+        }
+        if (PlayerMoney > ShopItems[1].objVal)
+        {
+        ShopItems[1].Obj.onClick.AddListener(() => AddtoInv(1));
         }
     }
     public void AddtoInv(int val)
@@ -88,6 +91,7 @@ public class Inventory : MonoBehaviour {
         if (PlayerMoney > ShopItems[val].objVal)
         {
             playerInv.Add(ShopItems[val].objText);
+            
             ScreenInv.text = "";
             PlayerMoney = PlayerMoney - ShopItems[val].objVal;
         }
@@ -97,8 +101,7 @@ public class Inventory : MonoBehaviour {
         }
         foreach(string msg in playerInv)
         {
-            ScreenInv.text += msg.ToString() + "\n";
-
+         ScreenInv.text += msg.ToString() + "\n";
         }
     }
     public void Remove(string val)
