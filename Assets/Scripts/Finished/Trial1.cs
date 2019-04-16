@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class Trial : MonoBehaviour
+public class Trial1 : MonoBehaviour
 {
     public List<TrialObject> Buttons = new List<TrialObject>();
     int buttonsVal;
@@ -11,6 +11,7 @@ public class Trial : MonoBehaviour
     public Text chanceText;
     public Text loseText;
     public Text pickText;
+    public Button ContinueButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Trial : MonoBehaviour
                 break;
         }
         loseText.gameObject.SetActive(false);
+        ContinueButton.gameObject.SetActive(false);
     }
 
     void Update()
@@ -39,9 +41,9 @@ public class Trial : MonoBehaviour
             {
                 if (Buttons[0].IsCorrect == true)
                 {
-                    Buttons[0].Obj.SetActive(false);
                     Buttons[0].Obj.GetComponent<Renderer>().material.color = Color.white;
-                    Buttons[0].objTxt.GetComponent<Text>().color = Random.ColorHSV();
+                    pickText.text = "Push the Button To Continue";
+                    ContinueButton.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -54,9 +56,9 @@ public class Trial : MonoBehaviour
             {
                 if (Buttons[1].IsCorrect == true)
                 {
-                    Buttons[1].Obj.SetActive(false);
                     Buttons[1].Obj.GetComponent<Renderer>().material.color = Color.white;
-                    Buttons[1].objTxt.GetComponent<Text>().color = Random.ColorHSV();
+                    pickText.text = "Push the Button To Continue";
+                    ContinueButton.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -69,9 +71,9 @@ public class Trial : MonoBehaviour
             {
                 if (Buttons[2].IsCorrect == true)
                 {
-                    Buttons[2].Obj.SetActive(false);
                     Buttons[2].Obj.GetComponent<Renderer>().material.color = Color.white;
-                    Buttons[2].objTxt.GetComponent<Text>().color = Random.ColorHSV();
+                    pickText.text = "Push the Button To Continue";
+                    ContinueButton.gameObject.SetActive(true);
                 }
                 else
                 {
@@ -81,15 +83,12 @@ public class Trial : MonoBehaviour
                 }
             }
         }
-        else if(chance >= 2)
+        if(chance >= 2)
         {
             Debug.Log("You Lose");
             Buttons[0].Obj.SetActive(false);
             Buttons[1].Obj.SetActive(false);
             Buttons[2].Obj.SetActive(false);
-            Buttons[0].objTxt.gameObject.SetActive(false);
-            Buttons[1].objTxt.gameObject.SetActive(false);
-            Buttons[2].objTxt.gameObject.SetActive(false);
             chanceText.gameObject.SetActive(false);
             loseText.gameObject.SetActive(true);
             pickText.text = "Press Q to reset the scene";
@@ -106,5 +105,4 @@ public class TrialObject
 {
     public GameObject Obj;
     public bool IsCorrect;
-    public Text objTxt;
 }
