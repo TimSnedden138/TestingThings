@@ -51,6 +51,10 @@ public class Inventory : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         ScreenMoney.text = "Your Money Is: " + PlayerMoney;
         if (Input.GetKeyDown(KeyCode.Alpha1) && playerInv.Contains(ShopItems[0].objText))
         {

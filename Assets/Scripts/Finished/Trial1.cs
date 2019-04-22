@@ -12,10 +12,11 @@ public class Trial1 : MonoBehaviour
     public Text loseText;
     public Text pickText;
     public Button ContinueButton;
+    public Button FailButton;
+    public bool win;
     // Start is called before the first frame update
     void Start()
     {
-        buttonsVal = Random.Range(0, Buttons.Count);
         switch (buttonsVal)
         {
             case 0:
@@ -30,12 +31,17 @@ public class Trial1 : MonoBehaviour
         }
         loseText.gameObject.SetActive(false);
         ContinueButton.gameObject.SetActive(false);
+        FailButton.gameObject.SetActive(false);
+        buttonsVal = Random.Range(0, Buttons.Count);
     }
-
     void Update()
     {
         chanceText.text = "Chances:" + chance;
-        if (chance < 2)
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (chance < 2 && win != true)
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
@@ -44,6 +50,7 @@ public class Trial1 : MonoBehaviour
                     Buttons[0].Obj.GetComponent<Renderer>().material.color = Color.white;
                     pickText.text = "Push the Button To Continue";
                     ContinueButton.gameObject.SetActive(true);
+                    win = true;
                 }
                 else
                 {
@@ -59,6 +66,7 @@ public class Trial1 : MonoBehaviour
                     Buttons[1].Obj.GetComponent<Renderer>().material.color = Color.white;
                     pickText.text = "Push the Button To Continue";
                     ContinueButton.gameObject.SetActive(true);
+                    win = true;
                 }
                 else
                 {
@@ -74,6 +82,7 @@ public class Trial1 : MonoBehaviour
                     Buttons[2].Obj.GetComponent<Renderer>().material.color = Color.white;
                     pickText.text = "Push the Button To Continue";
                     ContinueButton.gameObject.SetActive(true);
+                    win = true;
                 }
                 else
                 {
@@ -83,7 +92,7 @@ public class Trial1 : MonoBehaviour
                 }
             }
         }
-        if(chance >= 2)
+        if(chance >= 2 && win == false)
         {
             Debug.Log("You Lose");
             Buttons[0].Obj.SetActive(false);
@@ -91,12 +100,8 @@ public class Trial1 : MonoBehaviour
             Buttons[2].Obj.SetActive(false);
             chanceText.gameObject.SetActive(false);
             loseText.gameObject.SetActive(true);
-            pickText.text = "Press Q to reset the scene";
             loseText.text = "You Lose";
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
+            FailButton.gameObject.SetActive(true);
         }
     }
 }

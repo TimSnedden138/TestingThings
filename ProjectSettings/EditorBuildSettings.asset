@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b7dc0421681170743aec2ad43c91ee17
   - enabled: 1
+    path: Assets/Scenes/Rules.unity
+    guid: 13bc218b19a330d4fbb6a7a11f3cc0d5
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 04cfd227ffec2844ebeee2290cb2c46d
+  - enabled: 1
     path: Assets/Scenes/Story.unity
     guid: 98c527f954544694f9ec231416d133ec
   - enabled: 1
@@ -17,4 +23,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Trial2.unity
     guid: 8a5139754e6964e4d8b2286ad60a012e
+  - enabled: 1
+    path: Assets/Scenes/Color1.unity
+    guid: 09a3b20109c638b4d89ff9318d63d7a0
+  - enabled: 1
+    path: Assets/Scenes/Color2.unity
+    guid: 0286d970741dc734287a9cb142702a06
+  - enabled: 1
+    path: Assets/Scenes/Color3.unity
+    guid: 754fbd5fd18ea7747a624e1f1d1ad72a
+  - enabled: 1
+    path: Assets/Scenes/Color4.unity
+    guid: 2a4ea25838a167c418341a5c1999723e
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 416373d4d32b2e749bf6b3c270183441
+  - enabled: 1
+    path: Assets/Scenes/Maze.unity
+    guid: 8e71024f8f5b62d49a806e03923150cb
   m_configObjects: {}

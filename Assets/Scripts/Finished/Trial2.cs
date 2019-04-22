@@ -24,11 +24,16 @@ public class Trial2 : MonoBehaviour
         Num2 = Random.Range(4, 7);
         Num3 = Random.Range(7, 10);
     }
-
     // Update is called once per frame
     void Update()
     {
         uI.pinText.gameObject.SetActive(false);
+        uI.Continue.gameObject.SetActive(false);
+        uI.Fail.gameObject.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         uI.wrongText.text = "Wrong\nYou Have " + wrongNums + " left";
         uI.correctText.text = "Correct\nYou got " + correctNums + " out of 3";
         if (correctNums < 3 && wrongNums < 3)
@@ -108,25 +113,24 @@ public class Trial2 : MonoBehaviour
     {
         Debug.Log("You Win");
         uI.desText.text = "You Win Hope Your Ready";
+        uI.Continue.gameObject.SetActive(true);
         for (int f = 0; f < Objs.Count; f++)
         {
             Objs[f].Obj.GetComponent<Renderer>().material.color = mats.green.color;
         }
+        uI.Continue.gameObject.SetActive(true);
     }
     public void Lose()
     {
         Debug.Log("You Lose");
         uI.empty.gameObject.SetActive(false);
         uI.pinText.gameObject.SetActive(true);
+        uI.Fail.gameObject.SetActive(true);
         uI.pinText.text = "The PIN was " + Num1 +" "+ Num2+ " " + Num3;
-        uI.desText.text = "You Lose Q to leave to Main Menu";
+        uI.desText.text = "You Lose";
         for(int f = 0; f < Objs.Count; f++)
         {
             Objs[f].Obj.GetComponent<Renderer>().material.color = mats.red.color;
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SceneManager.LoadScene("MainMenu");
         }
     }
 }
@@ -143,6 +147,8 @@ public class UIElement
     public GameObject empty;
     public Text desText;
     public Text pinText;
+    public Button Continue;
+    public Button Fail;
 }
 [System.Serializable]
 public class Mats
