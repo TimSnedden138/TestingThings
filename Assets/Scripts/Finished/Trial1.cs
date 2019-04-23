@@ -17,6 +17,7 @@ public class Trial1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        buttonsVal = Random.Range(0, Buttons.Count);
         switch (buttonsVal)
         {
             case 0:
@@ -32,7 +33,6 @@ public class Trial1 : MonoBehaviour
         loseText.gameObject.SetActive(false);
         ContinueButton.gameObject.SetActive(false);
         FailButton.gameObject.SetActive(false);
-        buttonsVal = Random.Range(0, Buttons.Count);
     }
     void Update()
     {
