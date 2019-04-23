@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Finished\CameraControls.cs" />
     <Compile Include="Assets\Scripts\Finished\Inventory.cs" />
     <Compile Include="Assets\Scripts\Finished\SceneSelector.cs" />
     <Compile Include="Assets\Scripts\Finished\StoryPicker.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\Scripts\Finished\Trial2.cs" />
     <Compile Include="Assets\Scripts\Finished\Trial3.cs" />
     <Compile Include="Assets\Scripts\Testing\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\Testing\ScreenCap.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>U:/Unity/TestingThings/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
