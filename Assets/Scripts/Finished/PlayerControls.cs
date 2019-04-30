@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PlayerControls : MonoBehaviour
 {
     private Rigidbody player;
     private int speed = 40;
     public Camera playerCam;
+    ScreenCap screenCap;
     void Start()
     {
         player = GetComponent<Rigidbody>();
@@ -37,5 +39,10 @@ public class PlayerControls : MonoBehaviour
                 speed = speed * 2;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            screenCap.Deletion();
+        }
     }
+
 }

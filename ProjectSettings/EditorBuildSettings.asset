@@ -42,6 +42,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/End.unity
     guid: 416373d4d32b2e749bf6b3c270183441
   - enabled: 1
-    path: Assets/Scenes/Maze.unity
+    path: Assets/Scenes/Section2/Maze.unity
     guid: 8e71024f8f5b62d49a806e03923150cb
+  - enabled: 1
+    path: Assets/Scenes/Section2/Maze2.unity
+    guid: e69bf05446ce3604da0cb13ab0b47910
+  - enabled: 1
+    path: Assets/Scenes/Section2/Maze2.5.unity
+    guid: 5167b45b52c9c3d4fbe143a655f11dcc
+  - enabled: 1
+    path: Assets/Scenes/Section3/Q1.unity
+    guid: ad0d6d74bc282e4489f3c94f062eb468
   m_configObjects: {}

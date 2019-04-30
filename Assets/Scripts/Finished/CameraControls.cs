@@ -19,6 +19,9 @@ public class CameraControls : MonoBehaviour
             case "2":
                 CameraSwitching(1);
                 break;
+            case "3":
+                CameraSwitching(2);
+                break;
         }
     }
     public void CameraSwitching(int val)
@@ -27,10 +30,18 @@ public class CameraControls : MonoBehaviour
         {
             cam[val].camera.gameObject.SetActive(true);
             cam[1].camera.gameObject.SetActive(false);
+            cam[2].camera.gameObject.SetActive(false);
         }
         if (val == 1)
         {
             cam[val].camera.gameObject.SetActive(true);
+            cam[0].camera.gameObject.SetActive(false);
+            cam[2].camera.gameObject.SetActive(false);
+        }
+        if (val == 2)
+        {
+            cam[val].camera.gameObject.SetActive(true);
+            cam[1].camera.gameObject.SetActive(false);
             cam[0].camera.gameObject.SetActive(false);
         }
     }
