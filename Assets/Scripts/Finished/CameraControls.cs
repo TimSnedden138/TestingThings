@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class CameraControls : MonoBehaviour
 {
-    public List<Cameras> cam = new List<Cameras>();
+    public List<Camera> cam = new List<Camera>();
     void Start()
     {
+
     }
     void Update()
     {
-
+        if (cam.Count == 2)
+        {
+            CameraSwaping2();
+        }        
+        else if (cam.Count == 3)
+        {
+            CameraSwaping3();
+        }
+    }
+    public void CameraSwaping3()
+    {
         switch (Input.inputString)
         {
             case "1":
@@ -24,30 +35,55 @@ public class CameraControls : MonoBehaviour
                 break;
         }
     }
-    public void CameraSwitching(int val)
+    public void CameraSwaping2()
     {
-        if (val == 0)
+        switch (Input.inputString)
         {
-            cam[val].camera.gameObject.SetActive(true);
-            cam[1].camera.gameObject.SetActive(false);
-            cam[2].camera.gameObject.SetActive(false);
-        }
-        if (val == 1)
-        {
-            cam[val].camera.gameObject.SetActive(true);
-            cam[0].camera.gameObject.SetActive(false);
-            cam[2].camera.gameObject.SetActive(false);
-        }
-        if (val == 2)
-        {
-            cam[val].camera.gameObject.SetActive(true);
-            cam[1].camera.gameObject.SetActive(false);
-            cam[0].camera.gameObject.SetActive(false);
+            case "1":
+                CameraSwitching(0);
+                break;
+            case "2":
+                CameraSwitching(1);
+                break;
         }
     }
-}
-[System.Serializable]
-public class Cameras
-{
-    public Camera camera;
+    public void CameraSwitching(int val)
+    {
+        if (cam.Count == 3)
+        {
+            if (val == 0)
+            {
+                cam[val].GetComponent<Camera>().gameObject.SetActive(true);
+                cam[1].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+                cam[2].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+            }
+            if (val == 1)
+            {
+                cam[val].GetComponent<Camera>().gameObject.gameObject.SetActive(true);
+                cam[0].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+                cam[2].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+            }
+            if (val == 2)
+            {
+                cam[val].GetComponent<Camera>().gameObject.gameObject.SetActive(true);
+                cam[1].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+                cam[0].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+            }
+        }
+        if (cam.Count == 2)
+        {
+            if (val == 0)
+            {
+                cam[val].GetComponent<Camera>().gameObject.gameObject.SetActive(true);
+                cam[1].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+                cam[2].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+            }
+            if (val == 1)
+            {
+                cam[val].GetComponent<Camera>().gameObject.gameObject.SetActive(true);
+                cam[0].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+                cam[2].GetComponent<Camera>().gameObject.gameObject.SetActive(false);
+            }
+        }
+    }
 }

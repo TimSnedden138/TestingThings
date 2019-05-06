@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scripts\Finished\Trial2.cs" />
     <Compile Include="Assets\Scripts\Finished\Trial3.cs" />
     <Compile Include="Assets\Scripts\Testing\Quiz.cs" />
-    <Compile Include="Assets\Scripts\Testing\QuizObj.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>U:/Unity/TestingThings/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
