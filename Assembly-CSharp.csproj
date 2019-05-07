@@ -65,13 +65,14 @@
     <Compile Include="Assets\Scripts\Finished\Exit.cs" />
     <Compile Include="Assets\Scripts\Finished\Inventory.cs" />
     <Compile Include="Assets\Scripts\Finished\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts\Finished\Quiz.cs" />
     <Compile Include="Assets\Scripts\Finished\SceneSelector.cs" />
     <Compile Include="Assets\Scripts\Finished\ScreenCap.cs" />
     <Compile Include="Assets\Scripts\Finished\StoryPicker.cs" />
     <Compile Include="Assets\Scripts\Finished\Trial1.cs" />
     <Compile Include="Assets\Scripts\Finished\Trial2.cs" />
     <Compile Include="Assets\Scripts\Finished\Trial3.cs" />
-    <Compile Include="Assets\Scripts\Testing\Quiz.cs" />
+    <Compile Include="Assets\Scripts\Testing\FinalPart1.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>U:/Unity/TestingThings/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

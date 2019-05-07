@@ -7,7 +7,9 @@ public class CameraControls : MonoBehaviour
     public List<Camera> cam = new List<Camera>();
     void Start()
     {
-
+        cam[0].gameObject.SetActive(true);
+        cam[1].gameObject.SetActive(false);
+        cam[2].gameObject.SetActive(false);
     }
     void Update()
     {

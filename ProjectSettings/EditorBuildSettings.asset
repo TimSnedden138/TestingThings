@@ -53,4 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Section3/Q1.unity
     guid: ad0d6d74bc282e4489f3c94f062eb468
+  - enabled: 1
+    path: Assets/Scenes/Section3/Q2.unity
+    guid: bcfb285781a85a84a95d4f31b7d4ab2b
+  - enabled: 1
+    path: Assets/Scenes/Section3/Q3.unity
+    guid: e928431996ab7dc45a8ba3b0ab7ad203
   m_configObjects: {}
